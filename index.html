@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Can We Stop Being Mad?</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fde2e4, #e2f0ff);
+      font-family: 'Poppins', 'Comic Sans MS', cursive;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 380px;
+      width: 100%;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      position: relative;
+      height: 110px;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    #yes {
+      background: #fb7185;
+      color: white;
+    }
+
+    #yes:hover {
+      background: #f43f5e;
+    }
+
+    #no {
+      background: #e5e7eb;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="us.jpg" alt="Us ❤️">
+
+    <h1>
+      Sooo… should we stop being mad  
+      <br>and go back to being us? 🥹
+    </h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes 💖</button>
+      <button id="no" ontouchstart="moveNo()" onmouseover="moveNo()">No 😐</button>
+    </div>
+  </div>
+
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const container = document.querySelector(".buttons");
+
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          min-height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          text-align:center;
+          background:linear-gradient(135deg,#fde2e4,#e2f0ff);
+          font-family:'Poppins','Comic Sans MS',cursive;
+          padding:20px;
+        ">
+          <h1 style="font-size:24px;">
+            YAY 🥹💗<br><br>
+            Okay, we’re friends again.<br>
+            Come talk to me 🤍
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
